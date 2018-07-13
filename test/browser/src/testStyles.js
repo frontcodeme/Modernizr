@@ -27,7 +27,7 @@ describe('testStyles', function() {
   });
 
   it('is just an alias to injectElementWithStyles', function() {
-    expect(ModernizrProto.testStyles).to.equal(injectElementWithStyles);
+    expect(ModernizrProto.testStyles).to.be.equal(injectElementWithStyles);
   });
 
   after(function() {

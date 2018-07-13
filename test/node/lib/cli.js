@@ -1,8 +1,8 @@
 var root = require('find-parent-dir').sync(__dirname, 'package.json');
-var expect = require('expect.js');
 var cp = require('child_process');
 var Modernizr = require(root + 'lib/cli');
-
+var chai = require('chai');
+var expect = chai.expect;
 
 describe('cli', function() {
 
@@ -21,5 +21,4 @@ describe('cli', function() {
   it('does not throw when setClasses is used as an option', function(done) {
     cp.exec('node ' + root + '/bin/modernizr -o setClasses', done);
   });
-
 });

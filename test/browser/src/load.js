@@ -9,7 +9,6 @@ describe('load', function() {
   var sinon;
   var load;
 
-
   before(function(done) {
 
     define('ModernizrProto', [], function() {return {};});
@@ -36,7 +35,6 @@ describe('load', function() {
     expect(ModernizrProto.load).to.be.a('function');
   });
 
-
   if (window.console && console.error) {
     describe('errors', function() {
 
@@ -44,7 +42,7 @@ describe('load', function() {
         var err = console.error;
         console.error = sinon.spy();
         ModernizrProto.load();
-        expect(console.error.calledOnce).to.be(true);
+        expect(console.error.calledOnce).to.be.equal(true);
         console.error = err;
       });
 
@@ -58,7 +56,7 @@ describe('load', function() {
 
         ModernizrProto.load();
 
-        expect(console.log.calledOnce).to.be(true);
+        expect(console.log.calledOnce).to.be.equal(true);
 
         console.log = log;
         console.error = err;
@@ -81,8 +79,8 @@ describe('load', function() {
         var warn = console.warn;
         console.warn = sinon.spy();
         ModernizrProto.load();
-        expect(console.warn.calledOnce).to.be(true);
-        expect(yepnope.calledOnce).to.be(true);
+        expect(console.warn.calledOnce).to.be.equal(true);
+        expect(yepnope.calledOnce).to.be.equal(true);
         console.warn = warn;
       });
 
@@ -96,8 +94,8 @@ describe('load', function() {
 
         ModernizrProto.load();
 
-        expect(console.log.calledOnce).to.be(true);
-        expect(yepnope.calledOnce).to.be(true);
+        expect(console.log.calledOnce).to.be.equal(true);
+        expect(yepnope.calledOnce).to.be.equal(true);
 
         console.log = log;
         console.warn = warn;
@@ -122,14 +120,14 @@ describe('load', function() {
     describe('browsers without a console', function() {
 
       it('doesn\'t blow up when calling console.error', function() {
-        expect(ModernizrProto.load).to.not.throwError();
+        expect(ModernizrProto.load).to.not.throw();
       });
 
       it('doesn\'t blow up when calling console.warn', function() {
         var yepnope = sinon.spy();
         window.yepnope = yepnope;
-        expect(ModernizrProto.load).to.not.throwError();
-        expect(yepnope.calledOnce).to.be(true);
+        expect(ModernizrProto.load).to.not.throw();
+        expect(yepnope.calledOnce).to.be.equal(true);
       });
 
     });
